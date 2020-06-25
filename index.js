@@ -39,8 +39,49 @@ function toggleColor(element) {
     element.style.color = "red"
   }
 }
+    ////****my answer*****//////
+    let titleText = document.querySelector("#header")
+    titleText.addEventListener("click", function(e){
+
+      toggleColor(titleText)
+      //or toggleColor(e.target)
+
+    })
 
 
 /***** Deliverable 2 *****/
 
+    ////****my answer*****//////
+    let newPlayerForm = document.querySelector("#new-player-form")
+    newPlayerForm.addEventListener("submit", function(e){
+
+      e.preventDefault()
+
+      const anotherPlayer = {
+        number: e.target.number.value,
+        name: e.target.name.value,
+        nickname: e.target.nickname.value,
+        photo: e.target.photo.value,
+        likes: 0
+      }
+
+      renderPlayer(anotherPlayer)
+    })
+
 /***** Deliverable 3 *****/
+
+
+    ////****my answer*****//////
+    
+    document.addEventListener("click", function(e){
+
+      if (e.target.className === "like-button"){
+
+        const playerDiv = e.target.parentNode
+        const likesP = playerDiv.querySelector(".likes")
+        const newLikes = parseInt(likesP.textContent) + 1
+        likesP.textContent = `${newLikes} likes`
+
+      }
+
+    })
