@@ -62,7 +62,7 @@ function toggleColor(element) {
         name: e.target.name.value,
         nickname: e.target.nickname.value,
         photo: e.target.photo.value,
-        likes: 0
+        likes: 1000
       }
 
       renderPlayer(anotherPlayer)
@@ -76,12 +76,15 @@ function toggleColor(element) {
     document.addEventListener("click", function(e){
 
       if (e.target.className === "like-button"){
-
         const playerDiv = e.target.parentNode
         const likesP = playerDiv.querySelector(".likes")
-        const newLikes = parseInt(likesP.textContent) + 1
-        likesP.textContent = `${newLikes} likes`
-
+        likesP.innerText = `${parseInt(likesP.innerText) + 1} likes`
       }
+
+          ///shorter/more concise way//
+        // if (e.target.className === "like-button") {  
+        //   let playerLikes = e.target.parentNode.querySelector(".likes")
+        //   playerLikes.innerText = `${parseInt(playerLikes.innerText)+1} likes` 
+        // }
 
     })
